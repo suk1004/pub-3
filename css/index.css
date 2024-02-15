@@ -1,0 +1,989 @@
+@import url(common.css);
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap');
+@font-face {
+  font-family: 'S-CoreDream-3Light';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-3Light.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'GangwonEduPowerExtraBoldA';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2201-2@1.0/GangwonEduPowerExtraBoldA.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+
+html, body {width: 100%; height: 100%;}
+.content{
+  text-indent: 100px;
+}
+
+html{scroll-behavior: smooth;}
+
+body::-webkit-scrollbar {width: 10px;}
+body::-webkit-scrollbar-thumb {
+  height: 30%;
+  background: #666; 
+  border-radius: 5px;
+}
+body::-webkit-scrollbar-track {background: #fff;}
+
+
+/* Header----------------------------------------------------------- */
+header{
+  width:100%;
+  height:70px;
+  float:right;
+}
+nav{
+  width:100%;
+  height:inherit;
+  display:flex;
+  justify-content:end;
+  align-items: center;
+  background-color:#fff;
+}
+.utilMenu .fa-solid:before{
+  content:'\f002';
+  font-family: fontawesome;
+  font-size:17px;
+  font-style: normal;
+}
+.utilMenu{
+  display:flex;
+}
+.utilMenu li{
+  margin-right:50px;
+  color:#333;
+  font-weight:500;
+  position:relative;
+}
+.utilMenu li:last-child{
+  margin-right:80px;
+}
+.utilMenu li:before{
+  content:'';
+  position:absolute;
+  bottom:-5px;
+  left:50%;
+  width:0;
+  height:3px;
+  background-color:rgb(48, 131, 0);
+  transform:translateX(-50%);
+  transition: 0.2s;
+}
+.utilMenu li:hover:before{
+  width:100%;
+}
+.utilMenu li:hover a{
+  color:rgb(48, 131, 0);
+}
+
+/* ------------------------------------------------------------------ */
+
+/* Main--------------------------------------------------------------- */
+
+#sidebar{
+  position:absolute;
+  width: 260px;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  background-color: #fff;
+  z-index: 100;
+}
+#sidebar h1{  /* logo */
+  text-align: center;
+  padding: 70px 0;
+}
+
+/* Main Menu */
+.menu>li{
+  position: relative;
+  width: 260px;
+	height:80px;
+  border-top: 1px solid rgba(72, 71, 71, 0.2);
+}
+.menu>li:last-child{
+  border-bottom:1px solid rgba(72, 71, 71, 0.2);
+}
+.menu>li>a{
+	display:block;
+	color:#333;
+	font-weight:600;
+	font-size:17px;
+  line-height: 80px;
+  padding-left: 80px;
+}
+.menu>li>a:after { 
+  content: "\e5cc";
+	font-family: 'Material Icons Outlined';
+  color: rgb(180, 179, 179);
+  font-size: 20px; 
+  float: right;
+	margin-right:65px;
+	font-weight: normal;
+}
+.menu>li>a:hover:after{
+  color:#A2B33B;
+  font-size:25px;
+}
+
+
+/* Sub Menu */
+.sub{
+  display:none;
+  position: absolute;
+  top: 0px;
+  left: 260px;
+}
+.sub li{
+  width: 160px;
+  padding-left: 20px;
+}
+.sub li a{
+  font-size: 16px;
+	color:#fff;
+	font-weight:400;
+  line-height: 35px;
+}
+.sub li a:hover{
+  color:#195800;
+  font-weight:600;
+}
+
+/* 주메뉴 오버시 나오는 서브배경박스 */
+.sub_box{
+  position: fixed;
+  top: 0;
+  left: 260px;
+  width:190px;
+  height: 931px;
+  background-color:#A2B33B;
+  z-index: 10;
+}
+
+
+#slideShow {
+  position: relative;
+  width: 1650px;
+	height: 861px;
+	margin: auto;
+  overflow: hidden;
+  float:right;
+}
+.slide ul{
+  position: absolute;
+  display: flex;
+}
+.slide ul li{
+  width: 1660px;
+	height: 861px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-radius: 120px 0 0 0;
+}
+
+.slide ul li:nth-child(1){background-image:url(../image/mainimg_01.png);}
+.slide ul li:nth-child(2){background-image:url(../image/mainimg_02.png);}
+.slide ul li:nth-child(3){background-image:url(../image/mainimg_03.png);}
+.slide ul li:nth-child(4){background-image:url(../image/mainimg_04.png);}
+.slide ul li:nth-child(5){background-image:url(../image/mainimg_05.png);}
+.slide ul li:nth-child(6){background-image:url(../image/mainimg_06.png);}
+
+
+/*좌우버튼*/
+.slide_side_btn a i{
+  display:inline-block;
+  font-size: 50px;
+  color: #333;
+  background-color:#fff;
+  border-radius: 50%;
+  font-style:normal;
+}
+
+.fa-angle-left{padding:10px 15px 10px 10px;}
+.fa-angle-right{padding:10px 10px 10px 15px;}
+.fa-angle-left{
+  font-family: fontawesome;
+  position: absolute;
+  top: 86%;
+  right: 190px;
+  width: 50px;
+  height: 50px;
+}
+.fa-angle-right{
+  font-family: fontawesome;
+  position: absolute;
+  top: 86%;
+  right: 90px;
+  width: 50px;
+  height: 50px;
+}
+.fa-angle-left:before{margin-left:15px;}
+.fa-angle-right:before{margin-left:15px;}
+.fa-angle-left:hover,
+.fa-angle-right:hover{opacity: 0.5;}
+
+
+/*슬라이드 텍스트 공통*/
+.slide{text-align:center;}
+.slide_text{
+  margin-top: 280px;
+  padding:60px 0 50px 0;
+  background-color:rgba(255,255,255,0.5);
+}
+.slide_text h2{
+  font-family: 'GangwonEduPowerExtraBoldA';
+  font-size: 40px;
+
+}
+.slide_text h2 strong{
+  font-family: 'GangwonEduPowerExtraBoldA';
+  color:#195800;
+  font-size: 45px;
+}
+.slide_text h3{
+  font-family: 'S-CoreDream-3Light';
+  font-weight:100;
+  color: #333;
+  font-size: 25px;
+  font-weight: 900;
+  margin-top:5px;
+}
+.slide_text button{
+  font-family: 'S-CoreDream-3Light';
+  width: 130px;
+  height: 40px;
+  border: none;
+  border-radius: 10px;
+  background: #000;
+  font-size: 15px;
+  cursor: pointer;
+  margin-top: 60px;
+  color: #fff;
+  font-weight:800;
+  line-height:40px;
+}
+.slide_text button:hover{
+  background-color:#195800;
+}
+
+
+
+
+/* section_header */
+.section_header{
+  background-color:#fff;
+  border-bottom:1px solid #e7e7e7;
+  width:100%;
+  height:100px;
+  display:flex;
+  text-align:center;
+  position: relative;
+}
+.gnb{
+  display:flex;
+  margin:auto;
+  justify-content: space-around;
+  height:100px;
+  padding-right:10px;
+}
+.gnb.fixed{
+  position:fixed;
+  left:0;
+  top:0;
+  width:100%;
+}
+.gnb>.sheader{width:260px;}
+
+.gnb li a{
+  display:inline-block;
+  line-height:60px;
+  text-align:center;
+}
+.gnb .first a, .sheader{
+  position:relative;
+}
+.gnb>.sheader>a{
+  position:relative;
+  width:inherit;
+  display:block;
+  height:100px;
+  line-height:100px;
+  color:#333;
+  box-sizing: border-box;
+  font-size:17px;
+  font-weight:600;
+  text-align:center;
+}
+.gnb .first>a:after{
+  content:"\f0dd";
+	font-family: fontawesome;
+	position: absolute;
+  color: #000;
+  top:-2px;
+  right:80px;
+  font-size:16px;
+}
+.gnb>.sheader:hover>a{
+  background-color:#201a49;
+  color:#fff;
+}
+.gnb>.sheader:hover>a:after{color:white;}
+.ssub{
+  display:none;
+  position:absolute;
+  top:100%;
+  width:inherit;
+  z-index: 10;
+}
+.ssub li{
+  width:inherit;
+  height:60px;
+  text-align:center;
+}
+.ssub li a{
+  text-align:center;
+  color:#fff;
+}
+.ssub li:hover{
+  background-color:#fff;
+}
+.ssub li:hover>a{
+  color:#333;
+  font-weight:500;
+}
+.ssub_bgbox{
+  display:none;
+  position:absolute;
+  top:100px;
+  left:0;
+  width:100%;
+  height:480px;
+  background:#201a49;
+  z-index: 5;
+}
+
+
+/* Article01 */
+.article01{
+  background-color:#faf9ff;
+  width:100%;
+  height:120px;
+  display:flex;
+  display:inline-block;
+  border-bottom:1px solid #e7e7e7;
+}
+.topbar{
+  width:1400px;
+  height:inherit;
+  display:flex;
+  justify-content:center;
+  align-items: center;
+  margin:auto;
+  position:relative;
+}
+.topbar h1{
+  font-family: 'GangwonEduPowerExtraBoldA';
+  font-size:45px;
+  flex:1;
+  margin-top:20px;
+}
+.topbar_menu{
+  height:60px;
+  font-size:45px;
+  line-height:1px;
+  position:absolute;
+  top:50%;
+  right:0;
+  transform:translateY(-50%);
+}
+.topbar_menu select{
+  width:300px;
+  height:60px;
+  cursor: pointer;
+  padding:0 15px;
+  position:absolute;
+  right:70px;
+  appearance:none;
+  background:url(../image/sl_button-01.png) no-repeat 95% 52%;
+  background-size:15px;
+  border-radius: 5px;
+  background-color:#fff;
+}
+#value1{
+  font-family: 'S-CoreDream-3Light';
+  font-size:15px;
+  color:#555;
+  font-weight:700;
+}
+.topbar button{
+  width:60px;
+  height:60px;
+  border:none;
+  background-color:transparent;
+  border:1px solid #201a49;
+  border-radius: 5px;
+  color:#201a49;
+  font-size:17px;
+  margin-left:10px;
+  cursor: pointer;
+  position:absolute;
+  right:0;
+}
+.topbar button:hover{
+  background-color:#201a49;
+  border:1px solid #201a49;
+  color:#fff;
+  font-weight:bold;
+}
+
+.leftimg{
+  position:relative;
+}
+.leftslide{
+  width:25%;
+  height: 709px;
+  overflow: hidden;
+  background-color:#faf9ff;
+  border-radius:0 120px 0 0;
+  top:1px;
+  box-shadow: 10px 7px 15px rgba(0,0,0,.18);
+}
+.lslide{
+  position:absolute;
+  display:flex;
+  width:350px;
+  height:550px;
+  top:70px;
+  left:60px;
+  overflow: hidden;
+}
+.lslide ul{
+  width:350px;
+  height:550px;
+  display: flex;
+	position:relative;
+	left:-350px;  
+}
+.lslide ul li{
+  width:350px;
+  height:550px;
+  display: flex;
+}
+.lslide img{
+  border-radius: 20px;
+}
+.slide_1_text{
+  margin:30px 0 0 6px;
+}
+.slide_1_text p:first-child{
+  font-size:18px;
+  color:#333;
+  font-weight:500;
+}
+.slide_1_text h4{
+  font-size:33px;
+  font-weight:bold;
+}
+.slide_1_text p:last-child{
+  color:#333;
+  margin-top:30px;
+}
+.left_slide_btn{
+  position:absolute;
+  bottom:60px;
+  left:100px;
+  transform:translateX(-50%);
+}
+.left_slide_btn ul{display:flex;}
+.left_slide_btn ul li{
+  width:10px;
+  height:10px;
+  border-radius:50%;
+  border:1px solid #999;
+  margin:0 4px;
+  cursor:pointer;
+}
+.left_slide_btn ul li.active{
+  background:#201a49;
+  border:1px solid #201a49;
+}
+
+
+.rightmain{
+  width:75%;
+  height:709px;
+  position:absolute;
+  top:0;
+  right:0;
+}
+.rightmains{
+  width:85%;
+  height:inherit;
+  position:absolute;
+  left:50%;
+  transform:translateX(-50%);
+  overflow:hidden;
+}
+.rightslide{
+  width:1200px;
+	height:580px;
+	position: absolute;
+  display:flex;
+	bottom: 60px;
+	left: 50%;
+  transform:translateX(-50%);
+}
+.rslide ul{
+  display:flex;
+}
+.rslide ul li{
+  width:350px;
+  height:578px;
+	position:relative;
+  left:-424px;
+  margin-right:72px;
+}
+.rslide ul li img{
+  border-radius: 20px;
+  position:absolute;
+  bottom:0;
+  left:50%;
+  transform:translateX(-50%);
+}
+.rslide_1_text{
+  text-align:center;
+}
+.rslide_1_text p:first-child{
+  font-size:15px;
+  color:#333;
+  font-weight:500;
+}
+.rslide_1_text h4{
+  font-size:18px;
+  font-weight:bold;
+  margin-top:5px;
+}
+.rslide_1_text p:last-child{
+  font-size:14px;
+  color:#333;
+  font-weight:500;
+  margin-top:22px;
+}
+.right_slide_btn_left{
+	position:absolute;
+	top:50%;
+	left:60px;
+	cursor:pointer;
+}
+.right_slide_btn_right{
+	position:absolute;
+	top:50%;
+	right:60px;
+	cursor:pointer;
+}
+.right_slide_btn span{
+	display:inline-block;
+	width:17px;
+	height:27px;	
+}
+.right_slide_btn .right_slide_btn_left{background:url(../image/main-event-left_02.png) no-repeat;}
+.right_slide_btn .right_slide_btn_right{background:url(../image/main-event-right_02.png) no-repeat;}
+.right_slide_btn .right_slide_btn_left:hover{background:url(../image/main-event-left_01.png) no-repeat;}
+.right_slide_btn .right_slide_btn_right:hover{background:url(../image/main-event-right_01.png) no-repeat;}
+
+
+/* Theatro */
+.theatro{
+  position: relative;
+  width: 100%;
+	height: 830px;
+  background-color:#fff;
+}
+.theatro_p1{
+  font-family: 'GangwonEduPowerExtraBoldA';
+  position: absolute;
+  top:50px;
+  left:50%;
+  transform:translateX(-50%);
+  font-size:55px;
+  padding:30px 0;
+  font-weight:500;
+}
+.theatro_p2{
+  width:100%;
+  text-align:center;
+  position: absolute;
+  top:130px;
+  left:50%;
+  transform:translateX(-50%);
+  font-size:17px;
+  padding:30px 0;
+}
+.theatro_img{
+  width:100%;
+  height:828px;
+}
+.theatro_img ul{
+  width:100%;
+  height:828px;
+  display: flex;
+}
+.theatro_img ul li{
+  position:relative;
+  left:-1300px;
+  width:1200px;
+  height:500px;
+  margin-right:100px;
+}
+.theatro_text{
+  width:1200px;
+  height:780px;
+  display:flex;
+  margin-left: 350px;
+}
+.theatro_text img{
+  border-radius: 10px;
+  position:absolute;
+  top:270px;
+}
+.theatro_text img:hover{
+  box-shadow: 0 0 20px #333;
+}
+.theatro_subtext{
+  position:absolute;
+  top:370px;
+  left:440px;
+}
+.theatro_subtext h5{
+  font-size: 18px;
+  color: #fff;
+  font-weight:500;
+}
+.theatro_subtext p{
+  font-size:35px;
+  margin-top:30px;
+  line-height:45px;
+  font-weight:600;
+  color:#fff;
+}
+.theatro_subtext button{
+  font-family: 'S-CoreDream-3Light';
+  width: 130px;
+  height: 40px;
+  border: none;
+  border-radius: 10px;
+  border:1px solid #fff;
+  color:#fff;
+  background-color:transparent;
+  font-size: 14px;
+  line-height:40px;
+  cursor: pointer;
+  margin-top: 110px;
+  letter-spacing: 1px;
+}
+.theatro_subtext button:hover{
+  background-color:#fff;
+  border:1px solid #fff;
+  color:#333;
+  font-weight:600;
+}
+
+
+/*좌우버튼*/
+.theatroicon{
+  font-size: 80px;
+  color: #c7c7c7;
+}
+.theatro_lbtn{
+  position: absolute;
+  top: 65%;
+  transform: translateY(-65%);
+  left: 360px;
+}
+.theatro_rbtn{
+  position: absolute;
+  top: 65%;
+  transform: translateY(-65%);
+  right: 360px;
+}
+.theatro_lbtn:hover{opacity: 0.5;}
+.theatro_rbtn:hover{opacity: 0.5;}
+
+
+/* Tab */
+#tab{
+  width:100%;
+  height:830px;
+  position:relative;
+  display:flex;
+}
+.notice{
+  font-family: 'GangwonEduPowerExtraBoldA';
+  position:absolute;
+  top:50px;
+  left:50%;
+  transform:translateX(-50%);
+  font-size:55px;
+  padding:30px 0;
+  font-weight:500;
+}
+.notice_sub{
+  text-align:center;
+  position: absolute;
+  top:130px;
+  left:50%;
+  transform:translateX(-50%);
+  font-size:17px;
+  padding:30px 0;
+}
+.intab{
+  width: 600px;
+  height: 520px;
+  display: flex;
+}
+.intab1{
+  margin-right:80px;
+  position:absolute;
+  top:29%;
+  left:15%;
+}
+.intab2{
+  position:absolute;
+  top:29%;
+  right:15%;
+}
+.accordion p{
+  color:#333;
+  display:flex;
+  font-size:23px;
+  font-weight:bold;
+  margin-bottom:20px;
+  border-bottom:3px solid #201a49;
+  padding-bottom:5px;
+}
+.more1, .more2{
+  color:#333;
+  height:40px;
+  font-size:14px;
+  font-weight:500;
+  line-height:45px;
+  padding-left:385px;
+  cursor: pointer;
+}
+.more1{padding-left:385px;}
+.more2{padding-left:430px;}
+.more1:hover, .more2:hover{
+  color:#201a49;
+  font-weight:600;
+}
+.title{
+  border-bottom: 1px solid #c0c0c0;
+  padding: 20px;
+  border-radius: 2px;
+  cursor: pointer;
+  padding-left: 20px;
+  transition: 0.3s;
+}
+.title:after{
+  content: '\f105';
+  font-family: fontawesome;
+  float: right;
+  margin: 5px 5px 0 0;
+  transition: 0.3s;
+}
+.title.active:after{
+  transform: rotate(90deg);
+  color: orange;
+}
+.title:hover,
+.title.active{
+  background-color: #201a49;
+  color: #fff;
+}
+.desc{
+  padding: 15px;
+  display: none;
+  font-size:15px;
+}
+.desc.active{display: block;}
+
+
+/* Site */
+.site{
+  width:100%;
+  height:560px;
+  position:relative;
+  display:flex;
+}
+.site_text{
+  font-family: 'GangwonEduPowerExtraBoldA';
+  position:absolute;
+  top:50px;
+  left:50%;
+  transform:translateX(-50%);
+  font-size:55px;
+  padding:30px 0;
+  font-weight:500;
+}
+.contact{
+  position:absolute;
+  bottom:80px;
+  width:100%;
+  height:300px;
+}
+.contact_in{
+  width:1400px;
+  margin:0 auto;
+}
+.map{
+  width:700px;
+  float:left;
+}
+iframe{border-radius: 10px;}
+
+.contact-form{
+  width:660px;
+  height:320px;
+  float:right;
+}
+
+/*오른쪽 Form*/
+.contact-form h3{
+  font-size:20px;
+  color:#333;
+  text-transform:uppercase;
+  letter-spacing:1px;
+  font-weight:600;
+  margin-bottom:20px;
+  margin-top:-5px;
+}
+.contact-form .form-item {margin-top:8px;}
+.contact-form label{
+  display:inline-block;
+  width:90px;
+  font-size:13px;
+  letter-spacing:1px;
+  color:#333;
+  text-transform: uppercase;
+  margin-bottom:10px;
+}
+.contact-form p:nth-child(3) label{vertical-align: top;}
+.form-email, .form-phone{margin-left:50px;}
+.form-email label, .form-phone label{width:60px;}
+.contact-form input,
+.contact-form textarea {
+  border:1px solid #999;
+  font-size:14px;
+  padding:4px;
+  resize:none;
+}
+.contact-form input[type="text"],
+.contact-form input[type="password"]{width:170px;}
+
+.contact-form input[type="email"],
+.contact-form input[type="tel"]{width: 250px;}
+.contact-form textarea{
+  width:548px;
+  height:145px;
+}
+.contact-form input[type="submit"]{
+  font-family: 'S-CoreDream-3Light';
+  border:1px solid #c7c7c7;
+  background-color:transparent;
+  color:#333;
+  font-size: 14px;
+  font-weight:600;
+  letter-spacing:1px;
+  width: 100px;
+  height:33px;
+  text-align: center;
+  cursor:pointer;
+  float:right;
+  margin-right:7px;
+}
+.contact-form input[type="submit"]:hover{
+  background:#201a49;
+  color:#fff;
+  font-weight:normal;
+}
+
+
+
+
+/* Footer */
+footer{
+	width:100%;
+  height:80px;
+}
+footer .footer1{
+  background-color:#201a49;
+	width:100%;
+  height:inherit;
+  display: flex;
+  color:#fff;
+}
+.footer1 ul{
+  width:1400px;
+  height:inherit;
+  display:flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: auto;
+}
+.footer1 ul li:hover{
+  color:rgb(252, 220, 160);
+}
+
+footer .footer2{
+  background-color:#fff;
+	width:100%;
+  height:200px;
+  display:flex;
+  position:relative;
+  left:-15px;
+}
+.footer2_box{
+  width:1400px;
+  margin:auto;
+}
+.ft_text{
+  position:absolute;
+  top:50%;
+  left:50%;
+  transform: translate(-50%,-50%);
+  text-align:center;
+  line-height: 28px;
+  color:#333;
+}
+.ft_text address,
+.ft_text em{font-style:normal;}
+.ft_text address{font-size:14px;}
+.ft_text em{
+  margin:0 10px 0;
+  color:rgba(0,0,0,0.5);
+  font-weight:600;
+}
+
+.ft2_logo img{
+  height:30px;
+}
+.ft2_logo img:first-child{
+  margin-right:30px;
+}
+.ft2_logo{
+  height:inherit;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  position:absolute;
+  top:50%;
+  right:-415px;
+  transform:translateY(-50%);
+}
+
+
+
